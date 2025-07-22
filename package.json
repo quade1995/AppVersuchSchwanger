@@ -1,12 +1,9 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "react-qr-barcode-scanner": "^2.1.8"
-=======
   "name": "meine-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "react-qr-barcode-scanner": "^2.1.8",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -39,6 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
->>>>>>> 87f56d7a752e62716a01839f40759206f6939796
   }
 }
