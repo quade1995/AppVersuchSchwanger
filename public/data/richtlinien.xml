@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<richtlinien>
+  <unerlaubt>
+    <fleisch>
+      <eintrag>roh</eintrag>
+      <eintrag>rohes</eintrag>
+      <eintrag>roher</eintrag>
+      <eintrag>nicht durchgegart</eintrag>
+      <eintrag>nicht erhitzt</eintrag>
+      <eintrag>tatar</eintrag>
+      <eintrag>mett</eintrag>
+      <eintrag>hackepeter</eintrag>
+      <eintrag>carpaccio</eintrag>
+      <eintrag>salami</eintrag>
+      <eintrag>rohschinken</eintrag>
+      <eintrag>serrano</eintrag>
+      <eintrag>parma</eintrag>
+      <eintrag>luftgetrocknet</eintrag>
+      <eintrag>geräuchert</eintrag>
+      <eintrag>kaltgeräuchert</eintrag>
+      <eintrag>teewurst</eintrag>
+      <eintrag>mettenden</eintrag>
+      <eintrag>landjäger</eintrag>
+    </fleisch>
+    <fisch>
+      <!-- Beispiele können hier eingefügt werden -->
+    </fisch>
+    <milch>
+      <!-- Beispiele können hier eingefügt werden -->
+    </milch>
+    <ei>
+      <!-- Beispiele können hier eingefügt werden -->
+    </ei>
+    <alkohol>
+      <!-- Beispiele können hier eingefügt werden -->
+    </alkohol>
+  </unerlaubt>
+  <maessigUnerlaubt>
+    <!-- Unterkategorien ggf. später ergänzen -->
+  </maessigUnerlaubt>
+</richtlinien>
