@@ -23,16 +23,54 @@
       <eintrag>landjäger</eintrag>
     </fleisch>
     <fisch>
-      <!-- Beispiele können hier eingefügt werden -->
+      <eintrag>roh</eintrag>
+      <eintrag>roher fisch</eintrag>
+      <eintrag>räucherlachs</eintrag>
+      <eintrag>graved</eintrag>
+      <eintrag>graved lachs</eintrag>
+      <eintrag>sushi</eintrag>
+      <eintrag>sashimi</eintrag>
+      <eintrag>matjes</eintrag>
+      <eintrag>rollmops</eintrag>
+      <eintrag>fisch roh</eintrag>
+      <eintrag>kaltgeräuchert</eintrag>
     </fisch>
     <milch>
-      <!-- Beispiele können hier eingefügt werden -->
+      <eintrag>rohmilch</eintrag>
+      <eintrag>rohmilchkäse</eintrag>
+      <eintrag>aus rohmilch</eintrag>
+      <eintrag>weichkäse</eintrag>
+      <eintrag>camembert</eintrag>
+      <eintrag>brie</eintrag>
+      <eintrag>gorgonzola</eintrag>
+      <eintrag>roquefort</eintrag>
+      <eintrag>blauschimmel</eintrag>
+      <eintrag>schimmelkäse</eintrag>
+      <eintrag>feta (wenn rohmilch)</eintrag>
+      <eintrag>ziegenkäse (wenn rohmilch)</eintrag>
     </milch>
     <ei>
-      <!-- Beispiele können hier eingefügt werden -->
+      <eintrag>rohes ei</eintrag>
+      <eintrag>rohei</eintrag>
+      <eintrag>ei roh</eintrag>
+      <eintrag>mayonnaise (frisch)</eintrag>
+      <eintrag>tiramisu</eintrag>
+      <eintrag>mousse</eintrag>
+      <eintrag>zabaione</eintrag>
+      <eintrag>aioli (roh)</eintrag>
     </ei>
     <alkohol>
-      <!-- Beispiele können hier eingefügt werden -->
+      <eintrag>alkohol</eintrag>
+      <eintrag>alkoholisch</eintrag>
+      <eintrag>wein</eintrag>
+      <eintrag>bier</eintrag>
+      <eintrag>likör</eintrag>
+      <eintrag>schnaps</eintrag>
+      <eintrag>sekt</eintrag>
+      <eintrag>rum</eintrag>
+      <eintrag>vodka</eintrag>
+      <eintrag>gin</eintrag>
+      <eintrag>whisky</eintrag>
     </alkohol>
   </unerlaubt>
   <maessigUnerlaubt>
