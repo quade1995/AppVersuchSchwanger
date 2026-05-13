@@ -21,6 +21,8 @@ function App() {
   const [forbiddenMatches, setForbiddenMatches] = useState([]);
   const [hasScannedOnce, setHasScannedOnce] = useState(false);
   const wrapperRef = useRef(null);
+  const settingsOverlayRef = useRef(null);
+  const settingsFirstRef = useRef(null);
   
 
   useEffect(() => {
@@ -49,6 +51,54 @@ function App() {
       }
     })();
   }, []);
+
+  // Load persisted preferences for settings UI
+  useEffect(() => {
+    (async () => {
+      try {
+        const s1 = await localforage.getItem('pref_showApiJson');
+        if (typeof s1 === 'boolean') setShowApiJson(s1);
+        const w = await localforage.getItem('pref_warningColor');
+        if (typeof w === 'string') setWarningColor(w);
+        const r = await localforage.getItem('pref_restrictionColor');
+        if (typeof r === 'string') setRestrictionColor(r);
+      } catch (_) {}
+    })();
+  }, []);
+
+  // Accessibility: focus management and keyboard handling for settings dialog
+  useEffect(() => {
+    if (!settingsOpen) return;
+
+    const node = settingsOverlayRef.current;
+    const dialog = node?.querySelector('[role="dialog"]');
+    // focus first focusable element
+    const focusable = dialog ? dialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])') : [];
+    if (focusable && focusable.length > 0) {
+      try { focusable[0].focus(); } catch (_) {}
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        setSettingsOpen(false);
+        return;
+      }
+      if (e.key === 'Tab' && focusable && focusable.length > 0) {
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [settingsOpen]);
 
   // Close settings when scanner becomes active
   useEffect(() => {
@@ -438,9 +488,9 @@ function App() {
 
           {/* Settings overlay */}
           {settingsOpen && (
-            <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
-              <div style={{ background: '#fff', color: '#000', padding: 16, borderRadius: 12, width: 420, maxWidth: '95%', textAlign: 'left' }}>
-                <h3 style={{ marginTop: 0 }}>Einstellungen</h3>
+            <div ref={settingsOverlayRef} onClick={(e) => { if (e.target === settingsOverlayRef.current) setSettingsOpen(false); }} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
+              <div role="dialog" aria-modal="true" aria-labelledby="settings-title" style={{ background: '#fff', color: '#000', padding: 16, borderRadius: 12, width: 420, maxWidth: '95%', textAlign: 'left' }} tabIndex={-1}>
+                <h3 id="settings-title" style={{ marginTop: 0 }}>Einstellungen</h3>
                 <div style={{ marginBottom: 12 }}>
                   <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <input
@@ -490,7 +540,7 @@ function App() {
                   </label>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
-                  <button onClick={() => setSettingsOpen(false)} style={{ padding: '8px 12px', borderRadius: 8 }}>Schließen</button>
+                  <button type="button" onClick={() => setSettingsOpen(false)} aria-label="Schließen Einstellungen" style={{ padding: '8px 12px', borderRadius: 8 }}>Schließen</button>
                 </div>
               </div>
             </div>
